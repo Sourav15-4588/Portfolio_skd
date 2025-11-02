@@ -1,0 +1,1140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects & Hobbies - My Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --text-color: #333;
+            --text-light: #777;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #f9f9f9;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        section {
+            padding: 100px 0;
+        }
+        
+        h1, h2, h3, h4 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+        p {
+            margin-bottom: 15px;
+            color: var(--text-light);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 80px;
+            height: 4px;
+            background-color: var(--secondary-color);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        /* Header & Navigation */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .logo span {
+            color: var(--secondary-color);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .menu-toggle {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Page Header */
+        .page-header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            padding: 150px 0 80px;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Projects Section */
+        .projects {
+            background-color: white;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-info {
+            padding: 25px;
+        }
+        
+        .project-info h3 {
+            margin-bottom: 10px;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin: 15px 0;
+        }
+        
+        .project-tag {
+            background-color: var(--light-color);
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-size: 0.8rem;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        
+        .project-links a {
+            text-decoration: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .project-link {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .project-link:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .github-link {
+            background-color: transparent;
+            color: var(--text-color);
+            border: 1px solid #ddd;
+        }
+        
+        .github-link:hover {
+            background-color: #f5f5f5;
+        }
+        
+        /* Hobbies Section */
+        .hobbies-section {
+            background-color: var(--light-color);
+        }
+        
+        .hobbies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .hobby-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .hobby-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .hobby-icon {
+            width: 70px;
+            height: 70px;
+            background-color: var(--secondary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 1.8rem;
+        }
+        
+        .hobby-card h3 {
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+        
+/* Gallery Section */
+.gallery-section {
+    background-color: white;
+    padding: 80px 0;
+}
+
+.gallery-description {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 1.1rem;
+    color: var(--text-light);
+}
+
+/* Gallery Category */
+.gallery-category {
+    margin-bottom: 60px;
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 25px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--secondary-color);
+    display: inline-block;
+}
+
+/* Horizontal Gallery Layout */
+.horizontal-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.gallery-item {
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 1;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: translateY(-5px);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover .gallery-img img {
+    transform: scale(1.1);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-info {
+    color: white;
+    transform: translateY(20px);
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-info {
+    transform: translateY(0);
+}
+
+.gallery-info h4 {
+    color: white;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.gallery-info p {
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    font-size: 0.85rem;
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+    .horizontal-gallery {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .horizontal-gallery {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+    
+    .category-title {
+        font-size: 1.5rem;
+    }
+}
+
+
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: block;
+            }
+            
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+            }
+            
+            .nav-links.active {
+                left: 0;
+            }
+            
+            .nav-links li {
+                margin: 15px 0;
+            }
+            
+            .project-grid, .hobbies-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <a href="index.html" class="logo">My<span>Portfolio</span></a>
+                <div class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#hobbies">Hobbies</a></li>
+                    <li><a href="#gallery">Gallary</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1>Projects & Hobbies</h1>
+            <p>Explore my creative work and personal interests that shape who I am</p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="assets/newstitle.jpg" alt="Project 1">
+                    </div>
+                    <div class="project-info">
+                        <h3>Transformer-Based News Title Classification</h3>
+                        <p>A research article on news title classification using transformer-based and ML models.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Transformer Model</span>
+                            <span class="project-tag">LIME</span>
+                        </div>
+                        <a href="https://github.com/Sourav15-4588/Transformer_Based_News_Title_Classification" class="btn">View Details</a>
+                    </div>
+                </div>
+                
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/22193828/IMG_0369.jpg?quality=90&strip=all&crop=23.22249589491,0,69.273399014778,100" alt="Project 2">
+                    </div>
+                    <div class="project-info">
+                        <h3>Calculator</h3>
+                        <p>A simple calculator with clean UI for basic arithmetic operations.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Flutter</span>
+                            <span class="project-tag">Dart</span>
+                        </div>
+                        <a href="#" class="btn">View Details</a>
+                    </div>
+                </div>
+                
+        
+            </div>
+        </div>
+    </section>
+
+
+
+ <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2 class="section-title">My Publications</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="publication-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI Research</button>
+                <button class="filter-btn" data-filter="ml">Machine Learning</button>
+                <button class="filter-btn" data-filter="nlp">NLP</button>
+            </div>
+            
+            <div class="publications-grid">
+                <!-- Publication 1 -->
+                <div class="publication-card" data-category="ai nlp">
+                    <div class="publication-img">
+                        <img src="https://www.shutterstock.com/image-photo/machine-learning-businessman-holds-on-260nw-2519366881.jpg" alt="AI Research">
+                    </div>
+                    <div class="publication-info">
+                        <h3>Explainable Detection: A Transformer-Based Language Modeling Approach for Bengali News Title Classification with Comparative Explainability Analysis Using ML & DL</h3>
+                        <div class="publication-meta">
+                            <span class="publication-journal">Frontiers in Artificial Intelligence</span>
+                            <span class="publication-date">2025</span>
+                        </div>
+                        <p>A comprehensive research article comparing transformer-based models with traditional ML approaches for news title classification, featuring explainability analysis using LIME.</p>
+                        <div class="publication-tags">
+                            <span class="publication-tag">Python</span>
+                            <span class="publication-tag">Transformer Models</span>
+                            <span class="publication-tag">LIME</span>
+                            <span class="publication-tag">NLP</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://www.frontiersin.org/journals/artificial-intelligence/articles/10.3389/frai.2025.1537432/abstract" class="btn">Read Article</a>
+                            <a href="#" class="btn btn-secondary">PDF</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Publication 2 -->
+                <div class="publication-card" data-category="dl nlp">
+                    <div class="publication-img">
+                        <img src="https://miro.medium.com/v2/1*tjyq7DrWkcK_rgym6YJ1Pw.png" alt="Machine Learning">
+                    </div>
+                    <div class="publication-info">
+                        <h3>Improving Bangla Linguistics: Advanced LSTM, Bi-LSTM, and Seq2Seq Models for Translating Sylheti to Modern Bangla</h3>
+                        <div class="publication-meta">
+                            <span class="publication-journal">IEEE Xplore</span>
+                            <span class="publication-date">2024</span>
+                        </div>
+                        <p>An approach to translate Sylheti language to Bengali language using Deep Learning approach.</p>
+                        <div class="publication-tags">
+                            <span class="publication-tag">Python</span>
+                            <span class="publication-tag">LSTM</span>
+                            <span class="publication-tag">NLP</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/10723886" class="btn">Read Article</a>
+                            <a href="https://arxiv.org/pdf/2505.18709" class="btn btn-secondary">PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication 3 -->
+                <div class="publication-card" data-category="nlp">
+                    <div class="publication-img">
+                        <img src="https://plantura.garden/uk/wp-content/uploads/sites/2/2022/04/cauliflower-before-harvest-1024x683.jpg?x54327" alt="NLP Research">
+                    </div>
+                    <div class="publication-info">
+                        <h3>Advancing Cauliflower Leaf Freshness and Disease Classification Using Deep Learning Models</h3>
+                        <div class="publication-meta">
+                            <span class="publication-journal">IEEE Xplore</span>
+                            <span class="publication-date">2025</span>
+                        </div>
+                        <p>Investigating the and identifying disease of vegetables from leaf freshness.</p>
+                        <div class="publication-tags">
+                            <span class="publication-tag">Deep Learning</span>
+                            <span class="publication-tag">Image Processing</span>
+                            <span class="publication-tag">Agriculture</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="https://ieeexplore.ieee.org/abstract/document/11115631" class="btn">Read Article</a>
+                            <a href="https://www.researchgate.net/profile/Julkar-Naeen/publication/394834162_Advancing_Cauliflower_Leaf_Freshness_and_Disease_Classification_Using_Deep_Learning_Models/links/68ac6848ca495d76982fd800/Advancing-Cauliflower-Leaf-Freshness-and-Disease-Classification-Using-Deep-Learning-Models.pdf" class="btn btn-secondary">PDF</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication 4 -->
+                <div class="publication-card" data-category="nlp">
+                    <div class="publication-img">
+                        <img src="https://www.socialchamp.com/blog/wp-content/uploads/2024/06/Content-Blog-Banner_Q2-2024_1125x600_122_Social-Media-Sentiment-Analysis.png" alt="NLP Research">
+                    </div>
+                    <div class="publication-info">
+                        <h3>PolyHope-M at RANLP2025 Subtask-1 Binary Hope Speech Detection: Spanish Language Classification Approach with Comprehensive Learning using Transformer, Traditional ML, and DL</h3>
+                        <div class="publication-meta">
+                            <span class="publication-journal">Atlantis Press</span>
+                            <span class="publication-date">2025</span>
+                        </div>
+                        <p>A Comprehensive Learning Approach for Binary Hope Speech Detection in Spanish.</p>
+                        <div class="publication-tags">
+                            <span class="publication-tag">Deep Learning</span>
+                            <span class="publication-tag">Image Processing</span>
+                            <span class="publication-tag">Agriculture</span>
+                        </div>
+                        <div class="publication-links">
+                            <a href="#" class="btn">Read Article</a>
+                            <a href="https://acl-bg.org/proceedings/2025/RANLP%202025/pdf/2025.ranlp-1.90.pdf" class="btn btn-secondary">PDF</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+<style>
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Publications Section */
+        .publications {
+            padding: 80px 0;
+            background-color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #3498db, #2c3e50);
+            border-radius: 2px;
+        }
+
+        .publications-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .publication-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .publication-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .publication-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .publication-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .publication-card:hover .publication-img img {
+            transform: scale(1.05);
+        }
+
+        .publication-info {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .publication-info h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #2c3e50;
+            line-height: 1.4;
+        }
+
+        .publication-meta {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+
+        .publication-journal {
+            font-weight: 600;
+            color: #3498db;
+        }
+
+        .publication-date {
+            font-style: italic;
+        }
+
+        .publication-info p {
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .publication-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .publication-tag {
+            background: #e1f0fa;
+            color: #2980b9;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .publication-links {
+            display: flex;
+            gap: 10px;
+            margin-top: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: background 0.3s ease;
+            text-align: center;
+            flex: 1;
+        }
+
+        .btn:hover {
+            background: #2980b9;
+        }
+
+        .btn-secondary {
+            background: #2c3e50;
+        }
+
+        .btn-secondary:hover {
+            background: #1a252f;
+        }
+
+        /* Filter Buttons */
+        .publication-filters {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 8px 20px;
+            background: #ecf0f1;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: #3498db;
+            color: white;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .publications-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .publication-filters {
+                gap: 10px;
+            }
+            
+            .filter-btn {
+                padding: 6px 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+
+    <!-- Hobbies Section -->
+    <section id="hobbies" class="hobbies-section">
+        <div class="container">
+            <h2 class="section-title">My Hobbies & Interests</h2>
+            <div class="hobbies-grid">
+                
+                <!-- Hobby 1 -->
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Watching Anime</h3>
+                    <p>Enjoy watching Japanese Anime.</p>
+                </div>
+                
+                <!-- Hobby 2 -->
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-hiking"></i>
+                    </div>
+                    <h3>Traveling</h3>
+                    <p>Exploring nature trails and mountains during weekends for relaxation and exercise.</p>
+                </div>
+                
+                <!-- Hobby 3 -->
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-music"></i>
+                    </div>
+                    <h3>Music</h3>
+                    <p>Listening to various music genres from classical to electronic.</p>
+                </div>
+                
+                <!-- Hobby 4 -->
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h3>Drawing</h3>
+                    <p>I feel it's a part of my self, drawing objects or ideas using pencil and colors is an interesting way of expressing self.</p>
+                </div>
+                
+                <!-- Hobby 5 -->
+                <div class="hobby-card">
+                    <div class="hobby-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Cooking</h3>
+                    <p>Experimenting with new recipes and cooking techniques from different cuisines.</p>
+                </div>
+                
+              
+            </div>
+        </div>
+    </section>
+
+
+<!-- Gallery Section -->
+<section id="gallery" class="gallery-section">
+    <div class="container">
+        <h2 class="section-title">My Gallery</h2>
+        <p class="gallery-description">A visual journey through my creative expressions</p>
+        
+        <!-- Photography Section -->
+        <div class="gallery-category">
+            <h3 class="category-title">Traveling</h3>
+            <div class="horizontal-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/tr1.jpg" alt="City Lights">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Self Potrait</h4>
+                                <p>Sea Me and Smile</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/tr11.jpg" alt="Portrait">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Portrait Session</h4>
+                                <p>Mountain and lake view</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/tr2.jpg" alt="Mountain">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Besite</h4>
+                                <p>Enoying the sea beach</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/tr3.jpg" alt="Street">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>To Teknaf</h4>
+                                <p>Moments of joy with homies</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+        </div>
+        
+        <!-- Drawing Section -->
+        <div class="gallery-category">
+            <h3 class="category-title">Drawing & Art</h3>
+            <div class="horizontal-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/dr1.jpg" alt="Charcoal Drawing">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Mother Nature</h4>
+                                <p>Expressing nature's stuggle to save her children</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/dr3.jpg" alt="Digital Art">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Eyes</h4>
+                                <p>When eyes talk</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/dr4.jpg" alt="Watercolor">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>A Date</h4>
+                                <p>Urban life with you</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/dr5.jpg" alt="Sketch">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Sangram</h4>
+                                <p>Recreating the masterpiece of Zainul Abedin</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Cooking Section -->
+        <div class="gallery-category">
+            <h3 class="category-title">Cooking</h3>
+            <div class="horizontal-gallery">
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/c1.jpg" alt="Homemade Pasta">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Sahi Panir</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/c2.jpg" alt="Artisan Bread">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>soyabean Curry</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/c4.jpg" alt="Dessert">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Poha</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gallery-item">
+                    <div class="gallery-img">
+                        <img src="gallary/c5.jpg" alt="Pizza">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Payesh</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Footer -->
+   <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo2">Sourav's<span>Portfolio</span></div>
+                <div class="social-links">
+                    <a href="https://github.com/Sourav15-4588" class="social-link"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/souravkumar0/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://scholar.google.com/citations?user=kiQcUWIAAAAJ&hl=en" class="social-link"><i class="fab fa-google scholar"></i></a>
+                    <a href="https://www.researchgate.net/profile/Sourav-Das-67?ev=hdr_xprf" class="social-link"><i class="fab fa-researchgate"></i></a>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Sourav's Portfolio. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.menu-toggle').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelector('.nav-links').classList.remove('active');
+            });
+        });
+        
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.backgroundColor = 'white';
+                header.style.boxShadow = '0 2px 10px rgba(0, 0, 0, 0.1)';
+            }
+        });
+    </script>
+</body>
+</html>
